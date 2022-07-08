@@ -3,18 +3,15 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 
-from Alumno.models import Alumno
+from Alumno.models import Alumnos
 from Alumno.serializers import AlumnoSerializer
-import sqlite3
-import pandas as pd
-import unidecode
 
 #Obtener lista de alumnos (CON SECRET KEY).
 
 @csrf_exempt
 def AlumnoApi(request,id=0):
     if request.method == 'GET':
-        alumnos = Alumno.objects.all()
+        alumnos = Alumnos.objects.all()
         alumnos_serializer = AlumnoSerializer(alumnos, many=True)
         return JsonResponse(alumnos_serializer.data, safe=False)
     elif request.method =='POST':
@@ -35,16 +32,4 @@ def AlumnoApi(request,id=0):
         #     alumno = Alumno.objects.get(AlumnoId=id)
         #     alumno.delete()
         #     return JsonResponse("Eliminado correctamente", safe=False)
-def ImportarExcelAlumnos(request):
-    if request.method == 'POST':
-        cxn = sqlite3.connect('pruebaLite2.db')
-        exDf = pd.read_excel('Historico_22-1__EnviadosParaProyHub.xlsx',sheet_name = 'Sheet1')
-        exDf.columns = exDf.columns.str.replace(' ','_')
-        exDf.columns = exDf.columns.str.replace('.','_')
-        exDf.columns = exDf.columns.str.replace('-','_')
-        exDf.rename(columns={19:'nivel_y_ciclo_ingles'}, inplace = True)
-        exDf.columns = exDf.columns.str.lower()
-        exDf.to_sql(name='Alumnosdb',con=cxn,if_exists='replace',index=False)
-        cxn.commit()
-        cxn.close()
             

@@ -1,7 +1,8 @@
 from django.contrib import admin
-from Alumno.models import Alumno, models
+from Alumno.models import Alumnos, models
+from import_export.admin import ImportExportModelAdmin
 # Register your models here.
 
-class AlumnoAdmin(admin.ModelAdmin):
+class AlumnoAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     pass
-admin.site.register(Alumno, AlumnoAdmin)
+admin.site.register(Alumnos, AlumnoAdmin)

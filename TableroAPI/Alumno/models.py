@@ -4,16 +4,17 @@ from django.forms import FloatField
 # Create your models here.
 
 class Alumnos(models.Model):
-   expediente = models.IntegerField(primary_key=True)
+   id = models.IntegerField(primary_key=True, auto_created=True)
+   expediente = models.IntegerField(null=False, blank=False)
    nombre_programa = models.TextField(max_length=60, null=False, blank=False)
    clave_programa = models.IntegerField(null=False, blank=False)
    nombre = models.TextField(max_length=60, null=False, blank=False)
    status = models.TextField(max_length=20, null=False, blank=False)
    cred_pasante = models.IntegerField(null=False, blank=False)
-   cred_aprob_ = models.IntegerField(null=False, blank=False)
+   cred_aprob = models.IntegerField(null=False, blank=False)
    prom_kdxs = models.FloatField(null=False, blank=False)
    prom_periodo = models.FloatField(null=False, blank=False)
-   mat_aprob_ = models.IntegerField(null=False, blank=False)
+   mat_aprob = models.IntegerField(null=False, blank=False)
    materias_acreditadas = models.TextField(max_length=255, null=False, blank=True)
    materias_segunda_inscr = models.TextField(max_length=255, null=False, blank=True)
    materias_tercera_inscr = models.TextField(max_length=255, null=False, blank=True)

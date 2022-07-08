@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'Tablero.apps.TableroConfig',
-    'Alumno.apps.AlumnoConfig'
+    'Alumno.apps.AlumnoConfig',
+    'import_export'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
