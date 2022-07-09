@@ -7,9 +7,10 @@ class AlumnoSerializer(serializers.ModelSerializer):
         model = Alumnos
         fields = (
             'id',
-            'expediente', 
             'nombre_programa',
             'clave_programa',
+            'plan', 
+            'expediente', 
             'nombre',
             'status',
             'cred_pasante',
