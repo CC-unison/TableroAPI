@@ -19,6 +19,7 @@ class AlumnoSerializer(serializers.ModelSerializer):
             'prom_periodo',
             'mat_aprob',
             'materias_acreditadas',
+            'materias_inscritas',
             'materias_segunda_inscr',
             'materias_tercera_inscr',
             'materias_reprobadas',
