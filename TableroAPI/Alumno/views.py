@@ -3,7 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 
-from Alumno.models import Alumno
+from Alumno.models import Alumnos
 from Alumno.serializers import AlumnoSerializer
 
 #Obtener lista de alumnos (CON SECRET KEY).
@@ -11,7 +11,7 @@ from Alumno.serializers import AlumnoSerializer
 @csrf_exempt
 def AlumnoApi(request,id=0):
     if request.method == 'GET':
-        alumnos = Alumno.objects.all()
+        alumnos = Alumnos.objects.all()
         alumnos_serializer = AlumnoSerializer(alumnos, many=True)
         return JsonResponse(alumnos_serializer.data, safe=False)
     elif request.method =='POST':
