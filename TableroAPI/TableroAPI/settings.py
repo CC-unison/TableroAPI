@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'Tablero.apps.TableroConfig',
     'Alumno.apps.AlumnoConfig',
+    'AdminHub.apps.AdminhubConfig',
     'import_export'
 ]
 
