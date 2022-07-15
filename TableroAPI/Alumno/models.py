@@ -32,6 +32,8 @@ class Alumnos(models.Model):
    estatusproyectoserviciosocial_cicloregistro = models.TextField(max_length=20, null=True, blank=True)
    egel_testimonio = models.TextField(max_length=60, null=True, blank=True)
    inscrito = models.TextField(max_length=5, null=True, blank=False)
+   def __str__(self):
+      return self.expediente
 
 
    
