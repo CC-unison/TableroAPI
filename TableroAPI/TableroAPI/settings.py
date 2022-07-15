@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Tablero.apps.TableroConfig',
     'Alumno.apps.AlumnoConfig',
     'AdminHub.apps.AdminhubConfig',
+    'PublicacionAdmin.apps.PublicacionadminConfig',
     'import_export'
 ]
 

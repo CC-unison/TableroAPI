@@ -12,7 +12,7 @@ class Admins(models.Model):
 
 class Sesiones_Admins(models.Model):
     id = models.AutoField(primary_key=True)
-    id_admin = models.ForeignKey(Admins, on_delete=models.CASCADE)
+    id_admin = models.ForeignKey(Admins, on_delete=models.CASCADE, null=True)
     inicio_sesion = models.DateTimeField()
     cierre_sesion = models.DateTimeField()
     def __str__(self):
